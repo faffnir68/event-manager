@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-import EventsList from "../views/EventsList.vue";
+import EventList from "../views/EventList.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,8 +10,16 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/events",
-    name: "EventsList",
-    component: EventsList
+    name: "EventList",
+    component: EventList,
+    props: (route:any) => ({ page: parseInt(route.query.page) || 1 })
+  },
+  {
+    path: '/details',
+    name: 'EventDetails',
+    component: () => {
+      import("../views/EventDetails.vue")
+    }
   },
   {
     path: "/about",

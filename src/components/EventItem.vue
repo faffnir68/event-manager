@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="event-item">
+    <router-link class="event-item" :to="{ name: 'EventDetails', params: { id: '1' } }">
       <h3>{{ event.title }}</h3>
       <h6>@{{ event.time }} on {{ event.date }}</h6>
       <p>{{ event.description }}</p>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -12,8 +12,12 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "EventsItem",
+  name: "EventItem",
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     event: {
       type: String,
       default: ''
@@ -36,6 +40,10 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  // color: #42b983;
+  cursor: pointer;
+  &:hover {
+    color: #42b983;
+  }
 }
 </style>
