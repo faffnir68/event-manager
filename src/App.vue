@@ -26,6 +26,9 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+    &:hover {
+      color: #42b983;
+    }
   }
 }
 </style>
